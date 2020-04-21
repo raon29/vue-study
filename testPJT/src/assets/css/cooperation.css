@@ -1,0 +1,401 @@
+@charset "UTF-8";
+
+/*! * animate.css -http://daneden.me/animate * Version - 3.7.0 * Licensed under the MIT license - http://opensource.org/licenses/MIT * * Copyright (c) 2018 Daniel Eden */
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: .4
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn
+}
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both
+}
+
+/*============================================
+전체 공통
+============================================*/
+.w100 {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.btn-wrap {
+  position: relative;
+  float: right;
+  margin: 10px 0;
+}
+
+.btn-wrap button {
+  margin-left: 5px;
+}
+
+.btn-wrap .btn-attention {
+  padding: 6px 18px;
+}
+
+
+#app,
+.wrapper {
+  height: 100%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.layer-wide-container,
+.layout-container {
+  min-width: 1100px;
+  overflow: hidden;
+  background-color: rgb(255, 255, 255);
+}
+
+.layout-container {
+  height: 100%;
+}
+
+.flex-layout {
+  display: flex;
+}
+
+/* header */
+.topRight {
+  position: relative;
+  height: 48px;
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 20px 20px 0;
+}
+
+.topRight .btn-search {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  margin-top: 12px;
+  margin-right: 10px;
+}
+
+.topRight .user-info i {
+  font-size: 28px;
+  opacity: .35;
+  margin-top: -2px;
+  margin-left: 5px;
+}
+
+.topRight .user-info i:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.topRight .btn-admin {
+  text-align: left;
+  white-space: nowrap;
+  display: inline-block;
+  height: 28px;
+  border-radius: 14px;
+  border: 1px solid #bfbab7;
+  background-color: #bfbab7;
+  box-sizing: border-box;
+  vertical-align: top;
+  margin-right: 10px;
+  word-spacing: -1px
+}
+
+.topRight .btn-admin a {
+  color: #fff;
+  font-size: 11px;
+  padding: 0 2px;
+}
+
+.topLeft {
+  display: flex;
+  flex-direction: row;
+  -moz-box-pack: justify;
+  justify-content: space-between;
+  position: relative;
+  z-index: auto;
+  height: 78px;
+  margin: 0px 20px;
+  /* border-bottom: 1px solid rgb(225, 225, 225); */
+  color: #222;
+}
+
+/* tabMenu */
+.tabMenu {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+/* 
+.tabMenu ul {
+	display: flex;
+	flex-direction: row;
+	margin:0 25px;
+	border-bottom:1px solid #e1e1e1;
+}
+.tabMenu li {
+	padding:8px 30px;
+}
+.tabMenu li.active {
+	color:#fa7723;
+	border-bottom:2px solid #fa7723;
+}
+.tabMenu li i {font-size:18px;}
+.tabMenu li i.fa-paperclip {font-size:21px;} */
+
+.md-tabs.md-theme-default .md-tabs-navigation {
+  border-bottom: 1px solid #e1e1e1;
+  padding: 0 15px;
+}
+
+.md-tabs.md-theme-default .md-tabs-navigation .md-button {
+  border-bottom: 2px solid transparent;
+}
+
+.md-tabs.md-theme-default .md-tabs-navigation .md-button:hover,
+.md-tabs.md-theme-default .md-tabs-navigation .md-button:active {
+  border-bottom-color: inherit;
+}
+
+.md-tabs.md-theme-default .md-tabs-navigation .md-button.md-active {
+  border-bottom: 2px solid #fa7723;
+}
+
+.md-tabs-navigation .md-button-content {
+  font-weight: bold;
+}
+
+/* .md-tabs-navigation .md-button-content {padding-left:10px;} */
+
+
+/*context-menu*/
+.context-menu {
+  margin: 0;
+  padding: 0;
+  width: 180px;
+  display: none;
+  list-style: none;
+  position: absolute;
+  z-index: 1000000;
+  background-color: #fff;
+  border-radius: 4px;
+  border-bottom-width: 0px;
+  border: 1px solid lightgray;
+  box-shadow: 0 3px 6px 0 rgba(51, 51, 51, 0.15);
+}
+
+.context-menu.active {
+  display: block;
+}
+
+.context-menu-item {
+  cursor: pointer;
+  padding: 8px 15px;
+  align-items: center;
+}
+
+.context-menu-item a {
+  color: #333;
+  text-decoration: none;
+}
+
+.context-menu-item:hover {
+  background-color: #eee;
+}
+
+.context-menu-item a:hover {
+  color: #333;
+}
+
+
+
+/*============================================
+메인 홈 영역
+============================================*/
+/* 공통 */
+.container-main {
+  position: relative;
+  width: calc(100% - 200px);
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.container {
+  position: relative;
+  width: calc(100% - 200px);
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.h100 {
+  height: 100vh;
+}
+
+.active,
+.txt-accent {
+  color: #fa7723;
+  font-weight: bold !important;
+}
+
+.more-view {
+  color: #999;
+  font-size: 12px;
+  font-weight: normal;
+  margin-left: 2px;
+}
+
+.inner-container {
+  display: flex;
+  flex-direction: row;
+  height: calc(100% - 126px);
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  padding: 0px 20px;
+  /* overflow-y: scroll; */
+}
+
+/* 개인공간 */
+.personal-warp {}
+
+.personal-tit {
+  font-weight: bold !important;
+  font-size: 16px;
+}
+
+/* 협업공간 */
+.cooper-wrap {
+  margin-top: 35px;
+}
+
+.cooper-tit {
+  font-weight: bold !important;
+  font-size: 16px;
+}
+
+/* 사이드 */
+aside {
+  flex: 0 0 250px;
+  padding-right: 20px;
+  /* overflow-y: scroll; */
+}
+
+.box-tit {
+  font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: 17px;
+  letter-spacing: -0.5px;
+}
+
+
+/*============================================
+사이드 영역
+============================================*/
+.subHeader {
+  position: relative;
+  min-height: 68px;
+  display: flex;
+  flex-direction: row;
+  padding: 0px 20px;
+}
+
+.header-tit {
+  font-size: 21px;
+  line-height: 1.2;
+}
+
+/*============================================
+팝업
+============================================*/
+/* layer popup */
+.header {
+  padding: 1em;
+  color: #fff;
+  background-color: #404040;
+}
+
+.header .md-title {
+  font-size: 16px;
+  padding-left: 15px;
+}
+
+.header .close-icon {
+  float: right;
+  cursor: pointer;
+}
+
+.header .close-icon .md-icon {
+  color: #fff;
+}
+
+.content {
+  width: 90%;
+  margin: 15px auto;
+}
+
+.content input {
+  width: 100%;
+  height: 40px;
+}
+
+.footer {
+  width: 90%;
+  margin: 15px auto;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.footer.newFolder {
+  text-align: right;
+}
+
+.btn_submit {
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  padding: 5px 20px;
+  border-radius: 3px;
+  background-color: #ff6600;
+}
+
+.btn_cancel {
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  padding: 5px 20px;
+  border-radius: 3px;
+  background-color: #7f7f7f;
+}
