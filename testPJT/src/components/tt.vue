@@ -1,25 +1,15 @@
 <template>
-  <div>
-    <!-- <Header /> -->
-    <!---->
-    <!---->
-    <div class="wrapper">
-      <div class="layout-container">
-        <div class="flex-layout">
-          <!-- <Header /> -->
-          <!---->
-          <LeftMenu />
-          <!---->
-          <router-view />
+    <div class="container">
+        <div>
+            <button @click="oepnDialog">Dialog Test</button>
+            <button @click="oepnModal">Modal Test</button>
         </div>
-      </div>
     </div>
-  </div>
 </template>
 
 <script>
 export default {
-  name: 'Test',
+  name: 'tt',
   data () {
     return {
       msg: 'Main page'

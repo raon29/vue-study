@@ -14,7 +14,9 @@
   },
   "dependencies": {
     "vue": "^2.5.2",
-    "vue-router": "^3.0.1"
+    "vue-burger-menu": "^2.0.5",
+    "vue-router": "^3.0.1",
+    "vue-sidebar-menu": "^4.5.3"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
