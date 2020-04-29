@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Test from '@/components/Test'
-import tt from '@/components/tt'
+import Second from '@/components/Second'
+import Child from '@/components/Child'
 import LeftMenu from '@/components/menu/LeftMenu'
 // import LeftMenu from '@/components/menu/LeftMenu'
 
 Vue.component('Test', Test)
-Vue.component('tt', tt)
 Vue.component('LeftMenu', LeftMenu)
 
 Vue.use(Router)
@@ -19,11 +19,16 @@ export default new Router({
       component: Test,
       children: [
         {
-          path: '/test',
-          name: 'tt',
-          component: tt
+          path: '/child',
+          name: 'Child',
+          component: Child
         }
       ]
+    },
+    {
+      path: '/sec',
+      name: 'Second',
+      component: Second
     }
   ]
 })
