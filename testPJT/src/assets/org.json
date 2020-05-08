@@ -1,0 +1,38 @@
+[
+    {"label":"한화시스템", "child":[ 
+        {"label":"TFT","child":[], "items":[ {"name": "부장"}, {"name": "과장1"}, {"name": "과장2"}, {"name": "대리1"}, {"name": "대리2"} ]}, 
+        
+        {"label":"기획실","child":[
+            {"label":"기획팀","child":[], "items":[] }], 
+        "items":[ {"name": "실장"}, {"name": "상무"}]},
+        
+        {"label":"인사지원실","child":[
+            {"label":"인사기획팀","child":[] },
+            {"label":"인사운영팀","child":[] }], 
+        "items":[{"name":"상무"}]},
+
+        {"label":"ICT 부문","child":[
+            {"label":"금융사업부","child":[] },
+            {"label":"제조/방산 사업부","child":[] },
+            {"label":"서비스/유화 사업부","child":[] },
+            {"label":"데이터 센터","child":[
+                {"label":"IDC","child":[], 
+                "items":[{"name":"팀장"}] },
+                {"label":"SharedService","child":[], 
+                    "items":[{"name":"팀장"}, {"name":"차장1"}, {"name":"차장2"},{"name":"차장3"},{"name":"차장4"}, 
+                        {"name":"과장1"},{"name":"과장2"},{"name":"과장3"},{"name":"과장4"},{"name":"과장5"}, 
+                        {"name":"대리1"}, {"name":"대리2"}, {"name":"대리3"}, {"name":"대리4"}, {"name":"사원1"}, {"name":"사원2"}, {"name":"사원3"} ]
+                }
+            ],             
+            "items":[{"name":"상무1"},{"name":"상무2"}]}],
+        "items":[{"name":"대표"}]}
+    ], 
+    
+    "items":[
+        {"name": "대표1"},
+        {"name": "대표2"}
+    ]}
+    
+
+    
+]

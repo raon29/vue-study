@@ -4,6 +4,7 @@ import Test from '@/components/Test'
 import Second from '@/components/Second'
 import Child from '@/components/Child'
 import LeftMenu from '@/components/menu/LeftMenu'
+import Scroll from '@/components/Scroll'
 // import LeftMenu from '@/components/menu/LeftMenu'
 
 Vue.component('Test', Test)
@@ -29,6 +30,11 @@ export default new Router({
       path: '/sec',
       name: 'Second',
       component: Second
+    },
+    {
+      path: '/scroll',
+      name: 'Scroll',
+      component: Scroll
     }
   ]
 })
