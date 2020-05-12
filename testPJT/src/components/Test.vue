@@ -1,7 +1,7 @@
 <template>
     <div class="container">
       <p>value = {{value}}</p>
-      <div><vue-slider v-model="value" :clickable="false" @drag-end="dargEnd()" /></div>
+      <div><vue-slider v-model="value" :clickable="false" @drag-start="dargStart(value)" @drag-end="dargEnd()" /></div>
 
       <P>Font Title  = {{ this.$store.state.fontSize.fontsSize.fontSize2 }}</P>
       <P>Font Content  = {{ this.$store.state.fontSize.fontsSize.fontSize1 }}</P>
@@ -35,7 +35,7 @@
             <br>
             <button @click="openModal">Modal Test</button>
             <br>
-            <button @click="standardModal">standard Modal Test</button>
+            <button @click="standardDialog">standard Modal Test</button>
             <br>
             <button @click="toast">Toast Test</button>
             <br>
@@ -54,7 +54,8 @@ export default {
   data () {
     return {
       msg: 'Main page',
-      value: 0
+      value: 0,
+      old: 0
     }
   },
   computed: {
@@ -101,7 +102,7 @@ export default {
       }
       this.showDialog(dialogInfo)
     },
-    standardModal () {
+    standardDialog () {
       this.$modal.show('dialog', {
         title: 'Alert!',
         text: 'You are too awesome',
@@ -140,8 +141,32 @@ export default {
     moveNext: function (event) {
       this.$router.push('/sec')
     },
-    dargEnd () {
-      alert('draged!')
+    dargEnd (val) {
+      console.log('dragend')
+      // Dialog 호출
+      let msg = '진척률을 ' + val + '%로 변경 하시겠습니까?'
+      this.$modal.show('dialog', {
+        title: '진척률 변경',
+        text: msg,
+        buttons: [
+          {
+            title: 'ok', // Button title
+            default: true // Will be triggered by default if 'Enter' pressed.
+            // handler: () => {} // Button click handler
+          },
+          {
+            title: 'close', // Button title
+            default: false, // Will be triggered by default if 'Enter' pressed.
+            handler: () => {
+              this.value = this.old
+              this.$modal.hide('dialog')
+            } // Button click handler
+          }
+        ]
+      })
+    },
+    dargStart (val) {
+      this.old = val
     }
   }
 }

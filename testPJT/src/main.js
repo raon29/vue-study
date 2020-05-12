@@ -16,7 +16,6 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import VueSlider from 'vue-slider-component'
 import 'vue-slider-component/theme/default.css'
 
-
 // 사용할 icon
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons'
