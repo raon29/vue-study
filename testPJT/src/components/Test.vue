@@ -1,5 +1,8 @@
 <template>
     <div class="container">
+      <p>value = {{value}}</p>
+      <div><vue-slider v-model="value" :clickable="false" @drag-end="dargEnd()" /></div>
+
       <P>Font Title  = {{ this.$store.state.fontSize.fontsSize.fontSize2 }}</P>
       <P>Font Content  = {{ this.$store.state.fontSize.fontsSize.fontSize1 }}</P>
 
@@ -32,6 +35,8 @@
             <br>
             <button @click="openModal">Modal Test</button>
             <br>
+            <button @click="standardModal">standard Modal Test</button>
+            <br>
             <button @click="toast">Toast Test</button>
             <br>
             <button @click="fontSizeChange">Text Size Change</button>
@@ -48,8 +53,8 @@ export default {
   name: 'tt',
   data () {
     return {
-      msg: 'Main page'
-
+      msg: 'Main page',
+      value: 0
     }
   },
   computed: {
@@ -73,7 +78,7 @@ export default {
     ...mapActions('modal', ['showDialog']),
     ...mapActions('modal', ['showToast']),
 
-    openDialog () {
+    openModal () {
       const modalInfo = {
         obj: this.$modal,
         name: 'Organization',
@@ -84,7 +89,7 @@ export default {
       }
       this.showModal(modalInfo)
     },
-    openModal () {
+    openDialog () {
       const dialogInfo = {
         obj: this.$modal,
         message: 'This is message',
@@ -95,6 +100,24 @@ export default {
         btnCanName: '취소'
       }
       this.showDialog(dialogInfo)
+    },
+    standardModal () {
+      this.$modal.show('dialog', {
+        title: 'Alert!',
+        text: 'You are too awesome',
+        buttons: [
+          {
+            title: 'ok', // Button title
+            default: true // Will be triggered by default if 'Enter' pressed.
+            // handler: () => {} // Button click handler
+          },
+          {
+            title: 'close', // Button title
+            default: true // Will be triggered by default if 'Enter' pressed.
+            // handler: () => {} // Button click handler
+          }
+        ]
+      })
     },
     toast () {
       const toastInfo = {
@@ -116,6 +139,9 @@ export default {
     },
     moveNext: function (event) {
       this.$router.push('/sec')
+    },
+    dargEnd () {
+      alert('draged!')
     }
   }
 }
