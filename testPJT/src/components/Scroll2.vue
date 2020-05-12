@@ -16,12 +16,14 @@
 </table>
         <infinite-loading spinner="waveDots" @infinite="infiniteHandler" ></infinite-loading>
 </div>
+<modals-container @selected="ShowChild"></modals-container>
 </div>
 </template>
 
 <script>
 import org from '../assets/org.json'
 import axios from 'axios'
+import Listmodal from './Listmodal'
 import { mapActions } from 'vuex'
 
 const api = '//hn.algolia.com/api/v1/search_by_date?tags=story'
@@ -30,7 +32,7 @@ export default {
   data () {
     return {
       page: 1,
-      childList: [],
+      childList: org[0].child,
       itemList: [],
       header: org
     }
@@ -55,34 +57,41 @@ export default {
     },
 
     ShowChild (item) {
-      // child 에 대한 Data Mapping
-      console.log(item)
-      this.header.push(item)
-      this.childList = item.child
-      this.itemList = item.items
-    },
-    selectItem (item) {
-      // 해당하는 값 popup
-    //   const modalInfo = {
-    //     obj: this.$modal,
-    //     name: 'List',
-    //     type: 'list',
-    //     component: Listmodal,
-    //     mWidth: '80%',
-    //     mHeight: '50%'
-    //   }
-    //   this.showModal(modalInfo)
-      while (true) {
-        if (this.header.pop() === item) {
-          this.header.push(item)
-          break
+      // new item
+      if (this.header.includes(item)) {
+        while (this.header.length !== 0) {
+          if (item === this.header.pop()) {
+            this.header.push(item)
+            break
+          }
         }
+      } else {
+        this.header.push(item)
       }
       this.childList = item.child
-      this.itemList = item.items
+    },
+
+    selectItem (item) {
+      // let allItem = org
+      // let sibItem = org
+
+      // 형제 찾기
+      let sibItem = item.parent
+
+      const modalInfo = {
+        obj: this.$modal,
+        name: 'List',
+        type: 'list',
+        component: Listmodal,
+        data: {
+          childList: sibItem
+        },
+        mWidth: '80%',
+        mHeight: '50%'
+      }
+      this.showModal(modalInfo)
     }
   }
-
 }
 </script>
 

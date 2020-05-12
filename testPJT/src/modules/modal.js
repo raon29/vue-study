@@ -39,9 +39,13 @@ const actions = {
       },
       {
         width: modal.mWidth,
-        height: modal.mHeight
+        height: modal.mHeight,
+        clickToClose: true
       }
     )
+  },
+  hideModal ({ state, commit }, modal) {
+    modal.obj.hide()
   },
   showDialog ({ commit }, dialog) {
     commit('setDialogParams', dialog)
