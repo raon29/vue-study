@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import Dialog from './Dialog'
+import Dialog from './forms/Dialog'
 import { mapActions } from 'vuex'
 
 export default {
@@ -103,6 +103,7 @@ export default {
       this.showDialog(dialogInfo)
     },
     standardDialog () {
+      console.log('why,,')
       this.$modal.show('dialog', {
         title: 'Alert!',
         text: 'You are too awesome',
@@ -141,10 +142,10 @@ export default {
     moveNext: function (event) {
       this.$router.push('/sec')
     },
-    dargEnd (val) {
+    dargEnd () {
       console.log('dragend')
       // Dialog 호출
-      let msg = '진척률을 ' + val + '%로 변경 하시겠습니까?'
+      let msg = '진척률을 ' + this.value + '%로 변경 하시겠습니까?'
       this.$modal.show('dialog', {
         title: '진척률 변경',
         text: msg,

@@ -23,7 +23,7 @@
 <script>
 import org from '../assets/org.json'
 import axios from 'axios'
-import Listmodal from './Listmodal'
+import Listmodal from './forms/Listmodal'
 import { mapActions } from 'vuex'
 
 const api = '//hn.algolia.com/api/v1/search_by_date?tags=story'

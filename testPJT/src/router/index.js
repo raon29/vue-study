@@ -3,12 +3,13 @@ import Router from 'vue-router'
 import Test from '@/components/Test'
 import Second from '@/components/Second'
 import Child from '@/components/Child'
-import LeftMenu from '@/components/menu/LeftMenu'
+import LeftMenu from '@/components/forms/LeftMenu'
 import Scroll from '@/components/Scroll'
 import Scroll2 from '@/components/Scroll2'
 import nav1 from '@/components/nav/nav1'
 import nav2 from '@/components/nav/nav2'
 import nav3 from '@/components/nav/nav3'
+import home from '@/components/Home'
 // import LeftMenu from '@/components/menu/LeftMenu'
 
 Vue.component('Test', Test)
@@ -29,6 +30,11 @@ export default new Router({
           component: Child
         }
       ]
+    },
+    {
+      path: '/home',
+      name: 'home',
+      component: home
     },
     {
       path: '/sec',

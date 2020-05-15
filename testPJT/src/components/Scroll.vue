@@ -1,7 +1,7 @@
 <template>
 <div>
 <div id='header'>
-    <span v-for="(item, $index) in header" :key="$index" @click="selectItem(item)">
+    <span class="sp" v-for="(item, $index) in header" :key="$index" @click="selectItem(item)">
         {{ item.label }}  <font-awesome-icon class='icon' icon="angle-right"/>
     </span>
 </div>
@@ -116,7 +116,7 @@ tr, td{
     width: 300px;
     border: 1px solid #444444;
 }
-span {
+.sp {
     color: white;
     padding: 20px;
 }
